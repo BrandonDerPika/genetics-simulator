@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Skin Tone Genetics Simulator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    label {
+      display: block;
+      margin-top: 1em;
+    }
+    select {
+      margin: 0.2em;
+    }
+    .result {
+      margin-top: 2em;
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .spawn-controls {
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Skin Tone Genetics Simulator</h1>
+
+  <form id="geneticsForm">
+    <h2>Parent 1</h2>
+    <label>A1: <select id="p1A1"></select></label>
+    <label>A2: <select id="p1A2"></select></label>
+    <label>B1: <select id="p1B1"></select></label>
+    <label>B2: <select id="p1B2"></select></label>
+    <div><strong>Parent 1 Phenotype:</strong> <span id="parent1Phenotype">N/A</span></div>
+    <div class="spawn-controls">
+      <label>Spawn Parent 1 as:
+        <select id="spawnP1Tone">
+          <option value="0">Pale</option>
+          <option value="1">Light</option>
+          <option value="2">Mixed</option>
+          <option value="3">Dark</option>
+          <option value="4">Ebony</option>
+        </select>
+      </label>
+      <button type="button" onclick="spawnParent(1)">Spawn Parent 1</button>
+    </div>
+
+    <h2>Parent 2</h2>
+    <label>A1: <select id="p2A1"></select></label>
+    <label>A2: <select id="p2A2"></select></label>
+    <label>B1: <select id="p2B1"></select></label>
+    <label>B2: <select id="p2B2"></select></label>
+    <div><strong>Parent 2 Phenotype:</strong> <span id="parent2Phenotype">N/A</span></div>
+    <div class="spawn-controls">
+      <label>Spawn Parent 2 as:
+        <select id="spawnP2Tone">
+          <option value="0">Pale</option>
+          <option value="1">Light</option>
+          <option value="2">Mixed</option>
+          <option value="3">Dark</option>
+          <option value="4">Ebony</option>
+        </select>
+      </label>
+      <button type="button" onclick="spawnParent(2)">Spawn Parent 2</button>
+    </div>
+
+    <button type="submit">Simulate Child</button>
+  </form>
+
+  <div class="result" id="resultBox" style="display:none;">
+    <h2>Possible Child Genotypes</h2>
+    <ul id="results"></ul>
+  </div>
+
+  <script src="genetics.js"></script>
+</body>
+</html>
